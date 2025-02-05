@@ -20,14 +20,11 @@ class Admin extends AbstractAdmin
 
     public function setupHooks(): void
     {
-        add_action('plugins_loaded', function () {
+        add_action('init', function () {
             $this->settingsPage('CardanoPress - ISPO', [
                 'parent' => Application::getInstance()->isReady() ? 'cardanopress' : '',
                 'menu_title' => 'ISPO Settings',
             ]);
-        });
-
-        add_action('init', function () {
             $this->poolSettings();
             $this->exportSettings();
             $this->dashboardSettings();
