@@ -66,7 +66,7 @@ class Installer extends AbstractInstaller
 
     public function migrateSettings(): void
     {
-        $this->log(__('Migrating settings', 'cardanopress'));
+        $this->log(__('Migrating settings', 'cardanopress-ispo'));
 
         $optionsValue = get_option(Admin::OPTION_KEY, []);
 
