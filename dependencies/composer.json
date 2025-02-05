@@ -28,8 +28,7 @@
       "classmap_prefix": "CardanoPress_ISPO_Dependency_",
       "excluded_packages": [
         "automattic/jetpack-autoloader",
-        "cardanopress/framework",
-        "woocommerce/action-scheduler"
+        "cardanopress/framework"
       ]
     }
   },

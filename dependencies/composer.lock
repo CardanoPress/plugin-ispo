@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "889d05e2d92efe3ecc3cd86faeb127e7",
+    "content-hash": "2a3b5132fba7e0e1aec0b82600175b5b",
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
@@ -29,17 +29,17 @@
             },
             "type": "composer-plugin",
             "extra": {
-                "autotagger": true,
                 "class": "Automattic\\Jetpack\\Autoloader\\CustomAutoloaderPlugin",
+                "autotagger": true,
                 "mirror-repo": "Automattic/jetpack-autoloader",
+                "branch-alias": {
+                    "dev-trunk": "2.12.x-dev"
+                },
                 "changelogger": {
                     "link-template": "https://github.com/Automattic/jetpack-autoloader/compare/v${old}...v${new}"
                 },
                 "version-constants": {
                     "::VERSION": "src/AutoloadGenerator.php"
-                },
-                "branch-alias": {
-                    "dev-trunk": "2.12.x-dev"
                 }
             },
             "autoload": {
@@ -70,16 +70,16 @@
         },
         {
             "name": "cardanopress/framework",
-            "version": "v2.7.0",
+            "version": "v2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CardanoPress/framework.git",
-                "reference": "813d2c5fbb71353845df3a063e30cd031d9a1212"
+                "reference": "0c6972819ef4265b311179f845bc1f6c41b2dc06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CardanoPress/framework/zipball/813d2c5fbb71353845df3a063e30cd031d9a1212",
-                "reference": "813d2c5fbb71353845df3a063e30cd031d9a1212",
+                "url": "https://api.github.com/repos/CardanoPress/framework/zipball/0c6972819ef4265b311179f845bc1f6c41b2dc06",
+                "reference": "0c6972819ef4265b311179f845bc1f6c41b2dc06",
                 "shasum": ""
             },
             "require": {
@@ -121,9 +121,9 @@
             ],
             "support": {
                 "issues": "https://github.com/CardanoPress/framework/issues",
-                "source": "https://github.com/CardanoPress/framework/tree/v2.7.0"
+                "source": "https://github.com/CardanoPress/framework/tree/v2.9.0"
             },
-            "time": "2024-08-08T03:27:53+00:00"
+            "time": "2025-01-28T06:10:53+00:00"
         },
         {
             "name": "league/csv",
@@ -213,13 +213,13 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^7.4|^8.0",
         "ext-json": "*"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

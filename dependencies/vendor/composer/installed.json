@@ -25,17 +25,17 @@
             "time": "2023-09-28T18:33:34+00:00",
             "type": "composer-plugin",
             "extra": {
-                "autotagger": true,
                 "class": "Automattic\\Jetpack\\Autoloader\\CustomAutoloaderPlugin",
+                "autotagger": true,
                 "mirror-repo": "Automattic/jetpack-autoloader",
+                "branch-alias": {
+                    "dev-trunk": "2.12.x-dev"
+                },
                 "changelogger": {
                     "link-template": "https://github.com/Automattic/jetpack-autoloader/compare/v${old}...v${new}"
                 },
                 "version-constants": {
                     "::VERSION": "src/AutoloadGenerator.php"
-                },
-                "branch-alias": {
-                    "dev-trunk": "2.12.x-dev"
                 }
             },
             "installation-source": "dist",
@@ -67,17 +67,17 @@
         },
         {
             "name": "cardanopress/framework",
-            "version": "v2.7.0",
-            "version_normalized": "2.7.0.0",
+            "version": "v2.9.0",
+            "version_normalized": "2.9.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CardanoPress/framework.git",
-                "reference": "813d2c5fbb71353845df3a063e30cd031d9a1212"
+                "reference": "0c6972819ef4265b311179f845bc1f6c41b2dc06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CardanoPress/framework/zipball/813d2c5fbb71353845df3a063e30cd031d9a1212",
-                "reference": "813d2c5fbb71353845df3a063e30cd031d9a1212",
+                "url": "https://api.github.com/repos/CardanoPress/framework/zipball/0c6972819ef4265b311179f845bc1f6c41b2dc06",
+                "reference": "0c6972819ef4265b311179f845bc1f6c41b2dc06",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +88,7 @@
                 "automattic/jetpack-autoloader": "^2.12",
                 "themeplate/tester": "^2.1"
             },
-            "time": "2024-08-08T03:27:53+00:00",
+            "time": "2025-01-28T06:10:53+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -121,7 +121,7 @@
             ],
             "support": {
                 "issues": "https://github.com/CardanoPress/framework/issues",
-                "source": "https://github.com/CardanoPress/framework/tree/v2.7.0"
+                "source": "https://github.com/CardanoPress/framework/tree/v2.9.0"
             },
             "install-path": "../cardanopress/framework"
         },
