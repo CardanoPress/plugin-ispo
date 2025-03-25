@@ -10,7 +10,7 @@ namespace PBWebDev\CardanoPress\ISPO;
 use CardanoPress\Traits\Instantiable;
 use CardanoPress\Traits\Loggable;
 use PBWebDev\CardanoPress\Blockfrost;
-use Psr\Log\LoggerInterface;
+use CardanoPress\Dependencies\Psr\Log\LoggerInterface;
 use CardanoPress\Dependencies\ThemePlate\Cache\CacheManager;
 use CardanoPress\Dependencies\ThemePlate\Process\Tasks;
 use WP_Error;

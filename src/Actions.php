@@ -137,7 +137,7 @@ class Actions implements HookInterface
 
         $currentUser = wp_get_current_user();
 
-        if (null !== $currentUser) {
+        if (0 !== $currentUser->ID) {
             $userProfile = new Profile($currentUser);
 
             if ($userProfile->connectedStake() === $stakeAddress) {

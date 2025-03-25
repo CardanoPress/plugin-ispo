@@ -8,7 +8,7 @@
 namespace PBWebDev\CardanoPress\ISPO;
 
 use Exception;
-use Psr\Log\LoggerInterface;
+use CardanoPress\Dependencies\Psr\Log\LoggerInterface;
 use CardanoPress\Interfaces\HookInterface;
 use CardanoPress\ISPO\Dependencies\League\Csv\Writer;
 use CardanoPress\Traits\Loggable;
