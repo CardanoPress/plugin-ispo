@@ -139,4 +139,9 @@ class Application extends AbstractApplication
 
         return $account['pool_id'] === $delegation['pool_id'];
     }
+
+    public function component(bool $echo = true): Component
+    {
+        return new Component($echo);
+    }
 }

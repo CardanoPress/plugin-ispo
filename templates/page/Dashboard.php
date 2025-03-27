@@ -10,41 +10,23 @@
  */
 
 use CardanoPress\Helpers\NumberHelper;
-use PBWebDev\CardanoPress\ISPO\Actions;
 
-$ration = cpISPO()->option('rewards_ration');
-$minAda = cpISPO()->option('rewards_minimum');
-$maxAda = cpISPO()->option('rewards_maximum');
-$commence = cpISPO()->option('rewards_commence');
-$conclude = cpISPO()->option('rewards_conclude');
-$tokens = cpISPO()->option('allocated_tokens');
 $pool = cpISPO()->delegationPool();
-$network = cpISPO()->userProfile()->connectedNetwork();
-$link = Actions::getCardanoscanLink($network, 'pool/');
 
 cardanoPress()->compatibleHeader();
 
 ?>
 
 <main>
-    <div
-        x-data="cardanoPressISPO"
-        data-ration="<?php echo esc_attr($ration); ?>"
-        data-minimum="<?php echo esc_attr($minAda); ?>"
-        data-maximum="<?php echo esc_attr($maxAda); ?>"
-        data-commence="<?php echo esc_attr($commence); ?>"
-        data-conclude="<?php echo esc_attr($conclude); ?>"
-    >
+    <div <?php cpISPO()->component()->cardanoPressISPO(); ?>>
         <section id="banner">
             <div class="container-xxl py-5">
                 <div class="col col-md-8 mx-auto text-center">
                     <h1><?php echo esc_html($pool['name']); ?> Initial Stake Pool Offering (ISPO)</h1>
                     <p>We are currently running our ISPO to distribute the <span class="fw-bold"><?php echo esc_html($pool['ticker']); ?></span> tokens to the delegates of the project.</p>
                     <p>Delegate your Cardano wallet to earn your rewards.</p>
-                    <p>Starts: <?php echo Actions::toUTC($commence); ?> UTC | Ends: <?php echo Actions::toUTC($conclude); ?> UTC</p>
-                    <?php if ($tokens) : ?>
-                        <p>Allocated Tokens: <?php echo number_format($tokens); ?></p>
-                    <?php endif; ?>
+                    <p>Starts: <?php cpISPO()->component()->commenceUTC(); ?> UTC | Ends: <?php cpISPO()->component()->concludeUTC(); ?> UTC</p>
+                    <p>Allocated Tokens: <?php cpISPO()->component()->allocatedTokens(); ?></p>
                     <a class="btn btn-primary" href="#calculator">Calculate Rewards</a>
                     <a class="btn btn-secondary" href="#pool-delegate">Delegate</a>
                 </div>
@@ -85,7 +67,7 @@ cardanoPress()->compatibleHeader();
                         <a href="#" x-on:click.prevent="clipboardValue('<?php echo esc_js($pool['pool_id']); ?>')" title="Copy to clipboard">Copy</a>
                     </span>
                     <span class="m-1">
-                        <a href="<?php echo esc_url($link . $pool['hex']); ?>" target="_blank" title="View on Cardanoscan">View</a>
+                        <a href="<?php cpISPO()->component()->cardanoscanLink('pool/' . $pool['hex']); ?>" target="_blank" title="View on Cardanoscan">View</a>
                     </span>
                 </div>
 

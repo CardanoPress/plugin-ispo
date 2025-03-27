@@ -1562,6 +1562,10 @@ return array(
 		'version' => 'dev-develop',
 		'path'    => $baseDir . '/../src/Application.php'
 	),
+	'PBWebDev\\CardanoPress\\ISPO\\Component' => array(
+		'version' => 'dev-develop',
+		'path'    => $baseDir . '/../src/Component.php'
+	),
 	'PBWebDev\\CardanoPress\\ISPO\\Exporter' => array(
 		'version' => 'dev-develop',
 		'path'    => $baseDir . '/../src/Exporter.php'
