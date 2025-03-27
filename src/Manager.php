@@ -12,15 +12,15 @@ use PBWebDev\CardanoPress\Blockfrost;
 
 class Manager
 {
-    public static function getSettings(int $index = null): array
+    public static function getSettings(?int $index = null): array
     {
         $settings = Application::getInstance()->option('settings');
 
         if (null === $index) {
-            return $settings;
+            return $settings ?: array();
         }
 
-        return $settings[$index];
+        return $settings[$index] ?: array();
     }
 
     public static function getPoolIDs(): array

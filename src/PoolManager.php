@@ -88,7 +88,7 @@ class PoolManager
 
         Blockfrost::useProjectIds($keys['mainnet'] ?? '', $keys['testnet'] ?? '');
 
-        foreach ($application->option('settings') as $setting) {
+        foreach ((array) $application->option('settings') as $setting) {
             $poolId = $setting['pool_id'];
             $queryNetwork = $setting['network'] ?? 'mainnet';
 
