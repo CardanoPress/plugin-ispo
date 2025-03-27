@@ -26,6 +26,8 @@ class Component
         $commence = $this->application->option('rewards_commence');
         $conclude = $this->application->option('rewards_conclude');
 
+        $this->application->enqueue('script', Manifest::HANDLE_PREFIX . 'script');
+
         return $this->attributes([
             'x-data' => 'cardanoPressISPO',
             'data-ration' => $ration,

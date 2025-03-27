@@ -12,10 +12,12 @@ use CardanoPress\Foundation\AbstractShortcode;
 class Shortcode extends AbstractShortcode
 {
     protected Application $application;
+    protected Component $component;
 
     public function __construct()
     {
         $this->application = Application::getInstance();
+        $this->component = new Component(false);
     }
 
     public function setupHooks(): void
@@ -26,23 +28,9 @@ class Shortcode extends AbstractShortcode
 
     public function doComponent($attributes, ?string $content = null): string
     {
-        $html = sprintf(
-            '<div x-data="cardanoPressISPO" data-%s="%s" data-%s="%s" data-%s="%s" data-%s="%s" data-%s="%s">',
-            'ration',
-            $this->application->option('rewards_ration'),
-            'minimum',
-            $this->application->option('rewards_minimum'),
-            'maximum',
-            $this->application->option('rewards_maximum'),
-            'commence',
-            $this->application->option('rewards_commence'),
-            'conclude',
-            $this->application->option('rewards_conclude')
-        );
+        $html = '<div ' . $this->component->cardanoPressISPO() . '>';
         $html .= apply_filters('the_content', $content);
         $html .= '</div>';
-
-        wp_enqueue_script(Manifest::HANDLE_PREFIX . 'script');
 
         return trim($html);
     }

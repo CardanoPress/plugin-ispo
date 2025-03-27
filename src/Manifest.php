@@ -47,8 +47,6 @@ class Manifest extends AbstractManifest
             if (! wp_script_is('cardanopress_bootstrap-script')) {
                 wp_enqueue_script(self::HANDLE_PREFIX . 'bootstrap');
             }
-
-            wp_enqueue_script(self::HANDLE_PREFIX . 'script');
         }
     }
 }
