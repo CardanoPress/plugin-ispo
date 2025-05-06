@@ -109,6 +109,7 @@ cardanoPress()->compatibleHeader();
                 </div>
 
                 <?php cpISPO()->template('delegate-section'); ?>
+                <?php the_content(); ?>
             </div>
         </div>
     </div>
