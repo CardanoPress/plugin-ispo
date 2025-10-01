@@ -67,17 +67,17 @@
         },
         {
             "name": "cardanopress/framework",
-            "version": "v2.11.0",
-            "version_normalized": "2.11.0.0",
+            "version": "v2.15.1",
+            "version_normalized": "2.15.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CardanoPress/framework.git",
-                "reference": "21c190cf93dfd28242090978f1ddf2af34dbad09"
+                "reference": "35976d76d300ac8703b9708bfa7314c991d723a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CardanoPress/framework/zipball/21c190cf93dfd28242090978f1ddf2af34dbad09",
-                "reference": "21c190cf93dfd28242090978f1ddf2af34dbad09",
+                "url": "https://api.github.com/repos/CardanoPress/framework/zipball/35976d76d300ac8703b9708bfa7314c991d723a6",
+                "reference": "35976d76d300ac8703b9708bfa7314c991d723a6",
                 "shasum": ""
             },
             "require": {
@@ -85,10 +85,11 @@
                 "php": "^7.4|^8.2"
             },
             "require-dev": {
-                "automattic/jetpack-autoloader": "^2.12",
+                "automattic/jetpack-autoloader": "^5.0",
+                "coenjacobs/mozart": "^0.7.1",
                 "themeplate/tester": "^2.1"
             },
-            "time": "2025-03-24T07:31:48+00:00",
+            "time": "2025-09-30T05:37:03+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -96,8 +97,8 @@
                     "dependencies/compatibility.php"
                 ],
                 "psr-4": {
-                    "CardanoPress\\": "src/",
-                    "CardanoPress\\Dependencies\\": "dependencies/"
+                    "CardanoPress\\": "src",
+                    "CardanoPress\\Dependencies\\": "dependencies"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -121,7 +122,7 @@
             ],
             "support": {
                 "issues": "https://github.com/CardanoPress/framework/issues",
-                "source": "https://github.com/CardanoPress/framework/tree/v2.11.0"
+                "source": "https://github.com/CardanoPress/framework/tree/v2.15.1"
             },
             "install-path": "../cardanopress/framework"
         },
