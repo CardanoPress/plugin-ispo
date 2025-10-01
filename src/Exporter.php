@@ -14,6 +14,13 @@ use CardanoPress\ISPO\Dependencies\League\Csv\Writer;
 use CardanoPress\Traits\Loggable;
 use PBWebDev\CardanoPress\Blockfrost;
 
+/**
+ * @phpstan-import-type SettingsStructure from Manager
+ * @phpstan-type DelegationStructure array{
+ *     stake_address: string,
+ *     amount: int,
+ * }
+ */
 class Exporter implements HookInterface
 {
     use Loggable;
@@ -66,6 +73,11 @@ class Exporter implements HookInterface
         try {
             $csv = Writer::createFromStream(tmpfile());
             $index = array_search($pool, Manager::getPoolIDs(), true);
+
+            if (false === $index) {
+                $this->dieHandler('unknown');
+            }
+
             $settings = Manager::getSettings((int) $index);
 
             $this->log(__METHOD__ . ' ' . $pool);
@@ -103,6 +115,14 @@ class Exporter implements HookInterface
         wp_die($types[$type]['message'], __('Export Data', 'cardanopress-ispo'), $types[$type]['code']);
     }
 
+    /**
+     * @param SettingsStructure $settings
+     * @return array{
+     *     stake_address: string,
+     *     total_amount: int,
+     *     total_reward: int,
+     * }
+     */
     protected function prepareHolder(array $settings, string $stakeAddress = ''): array
     {
         $prepared = apply_filters(
@@ -123,6 +143,10 @@ class Exporter implements HookInterface
         return $prepared;
     }
 
+    /**
+     * @param SettingsStructure $settings
+     * @return array<string, DelegationStructure>
+     */
     protected function getData(array $settings): array
     {
         $blockfrost = new Blockfrost($settings['network'] ?? 'mainnet');
@@ -160,6 +184,7 @@ class Exporter implements HookInterface
         return apply_filters('cp-ispo-export_csv_data', $delegations, $settings);
     }
 
+    /** @return DelegationStructure[]|array{} */
     protected function requestData(Blockfrost $blockfrost, string $pool_id, int $epoch, int $page): array
     {
         $this->log(__METHOD__ . ' epoch ' . $epoch . ' page #' . $page);

@@ -26,6 +26,7 @@ class Actions implements HookInterface
         add_action('wp_enqueue_scripts', [$this, 'localizeMessages'], 20);
     }
 
+    /** @return array<string, string> */
     protected static function customizableMessages(string $type): array
     {
         $data = [

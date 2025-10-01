@@ -13,6 +13,9 @@ use CardanoPress\Traits\Enqueueable;
 use CardanoPress\Traits\Instantiable;
 use CardanoPress\Traits\Templatable;
 
+/**
+ * @phpstan-import-type DataStructure from PoolManager
+ */
 class Application extends AbstractApplication
 {
     use Configurable;
@@ -74,6 +77,7 @@ class Application extends AbstractApplication
         return $user;
     }
 
+    /** @return DataStructure */
     public function delegationPool(): array
     {
         static $data;

@@ -13,8 +13,36 @@ use PBWebDev\CardanoPress\Blockfrost;
 use CardanoPress\Dependencies\Psr\Log\LoggerInterface;
 use CardanoPress\Dependencies\ThemePlate\Cache\CacheManager;
 use CardanoPress\Dependencies\ThemePlate\Process\Tasks;
-use WP_Error;
 
+/**
+ * @phpstan-type DataStructure array{
+ *     pool_id: string,
+ *     hex: string,
+ *     vrf_key: string,
+ *     blocks_minted: int,
+ *     blocks_epoch: int,
+ *     live_stake: int,
+ *     live_size: float,
+ *     live_saturation: float,
+ *     live_delegators: int,
+ *     active_stake: int,
+ *     active_size: float,
+ *     declared_pledge: int,
+ *     live_pledge: int,
+ *     margin_cost: float,
+ *     fixed_cost: int,
+ *     reward_account: string,
+ *     owners: array<string>,
+ *     registration: array<string>,
+ *     retirement: array<string>,
+ *     url: string,
+ *     hash: string,
+ *     ticker: string,
+ *     name: string,
+ *     description: string,
+ *     homepage: string,
+ * }
+ */
 class PoolManager
 {
     use Instantiable;
@@ -65,7 +93,8 @@ class PoolManager
         $tasks->report([$this->getLogger(), 'info']);
     }
 
-    public function getData()
+    /** @return ?array<string, DataStructure> */
+    public function getData(): ?array
     {
         return $this->cache->remember(
             self::IDENTIFIER . '-pool-data',
@@ -74,13 +103,13 @@ class PoolManager
         );
     }
 
-
-    public static function updateData()
+    /** @return ?array<string, DataStructure> */
+    public static function updateData(): ?array
     {
         $application = Application::getInstance();
 
         if (! $application->isReady()) {
-            return new WP_Error(self::IDENTIFIER, __('Application not ready', 'cardanopress-ispo'));
+            return null;
         }
 
         $poolData = [];
@@ -109,9 +138,10 @@ class PoolManager
         }
 
         if (empty($poolData)) {
-            return new WP_Error(self::IDENTIFIER, __('Blockfrost not ready', 'cardanopress-ispo'));
+            return null;
         }
 
+        /** @var array<string, DataStructure> */
         return $poolData;
     }
 }

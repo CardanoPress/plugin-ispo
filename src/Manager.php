@@ -10,17 +10,43 @@ namespace PBWebDev\CardanoPress\ISPO;
 use CardanoPress\Helpers\NumberHelper;
 use PBWebDev\CardanoPress\Blockfrost;
 
+/**
+ * @phpstan-type SettingsStructure array{
+ *     pool_id: string,
+ *     network: string,
+ *     allocated_tokens: int,
+ *     ration: float,
+ *     minimum: int,
+ *     maximum: int,
+ *     commence: int,
+ *     conclude: int,
+ *     multiplier: float,
+ * }
+ */
 class Manager
 {
+    public const DATA_STRUCTURE = [
+        'pool_id' => '',
+        'network' => '',
+        'allocated_tokens' => 0,
+        'ration' => 0,
+        'minimum' => 0,
+        'maximum' => 0,
+        'commence' => 0,
+        'conclude' => 0,
+        'multiplier' => 0,
+    ];
+
+    /** @return ($index is null ? SettingsStructure[] : SettingsStructure) */
     public static function getSettings(?int $index = null): array
     {
         $settings = Application::getInstance()->option('settings');
 
         if (null === $index) {
-            return $settings ?: array();
+            return $settings ?: self::DATA_STRUCTURE;
         }
 
-        return $settings[$index] ?: array();
+        return $settings[$index] ?: self::DATA_STRUCTURE;
     }
 
     /** @return string[] */

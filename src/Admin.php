@@ -33,6 +33,7 @@ class Admin extends AbstractAdmin
         add_action('themeplate_settings_cp-ispo_advanced', [$this, 'customStyle']);
     }
 
+    /** @return array<string, array<string, mixed>> */
     protected function generalFields(): array
     {
         return [
@@ -44,6 +45,7 @@ class Admin extends AbstractAdmin
         ];
     }
 
+    /** @return array<string, array<string, mixed>> */
     protected function delegationFields(): array
     {
         return [
@@ -54,6 +56,7 @@ class Admin extends AbstractAdmin
         ];
     }
 
+    /** @return array<string, array<string, mixed>> */
     protected function rewardsFields(): array
     {
         return [

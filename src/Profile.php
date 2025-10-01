@@ -29,11 +29,13 @@ class Profile extends AbstractProfile
         return $saved ?: 0.0;
     }
 
+    /** @param array<string, mixed> $rewards */
     public function saveExtraRewards(array $rewards): bool
     {
         return (bool)$this->updateMeta($this->prefix . 'extra_rewards', $rewards);
     }
 
+    /** @return array<string, mixed> */
     public function getExtraRewards(): array
     {
         $saved = $this->getMeta($this->prefix . 'extra_rewards', true);
