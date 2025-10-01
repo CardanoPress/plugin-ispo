@@ -23,6 +23,7 @@ class Manager
         return $settings[$index] ?: array();
     }
 
+    /** @return string[] */
     public static function getPoolIDs(): array
     {
         return array_column(self::getSettings(), 'pool_id');
@@ -48,7 +49,7 @@ class Manager
                     continue;
                 }
 
-                $settings = self::getSettings($index);
+                $settings = self::getSettings((int) $index);
                 $ration = $settings['ration'];
                 $multiplier = $settings['multiplier'];
                 $commence = $settings['commence'];
@@ -57,7 +58,7 @@ class Manager
                 if ($history['active_epoch'] >= $commence && $history['active_epoch'] <= $conclude) {
                     do_action('cp-ispo-qualified_epoch_for_rewards', $history['active_epoch'], $stakeAddress, $history);
 
-                    $lovelace = $history['amount'];
+                    $lovelace = (int) $history['amount'];
                     $rewards += apply_filters(
                         'cp-ispo-epoch_calculated_reward',
                         self::calculateReward($ration, $lovelace, $multiplier),
@@ -86,7 +87,7 @@ class Manager
             $index = array_search($account['pool_id'], $poolIds, true);
 
             if (false !== $index) {
-                $settings = self::getSettings($index);
+                $settings = self::getSettings((int) $index);
                 $ration = $settings['ration'];
                 $multiplier = $settings['multiplier'];
                 $conclude = $settings['conclude'];
@@ -127,7 +128,7 @@ class Manager
         if (! empty($account) && $account['active'] && in_array($account['pool_id'], $poolIds, true)) {
             do_action('cp-ispo-qualified_epoch_for_rewards', $latest['epoch'], $stakeAddress, $account);
 
-            $lovelace = $account['controlled_amount'];
+            $lovelace = (int) $account['controlled_amount'];
             $rewards += apply_filters(
                 'cp-ispo-epoch_calculated_reward',
                 self::calculateReward($ration, $lovelace, $multiplier),

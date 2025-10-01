@@ -58,7 +58,7 @@ class Actions implements HookInterface
         return $messages[$type] ?? '';
     }
 
-    public function localizeMessages()
+    public function localizeMessages(): void
     {
         $messages = apply_filters('cp-ispo-script_messages', $this->customizableMessages('script'));
 
@@ -80,10 +80,10 @@ class Actions implements HookInterface
         $format = get_option('date_format') . ' ' . get_option('time_format');
         $format = apply_filters('cp-ispo-date_format', $format);
 
-        return wp_date($format, self::toUnixTimestamp($epoch), new DateTimeZone('UTC'));
+        return (string) wp_date($format, self::toUnixTimestamp($epoch), new DateTimeZone('UTC'));
     }
 
-    public function getAccountDetails(WP_User $user)
+    public function getAccountDetails(WP_User $user): void
     {
         $userProfile = new Profile($user);
         $queryNetwork = $userProfile->connectedNetwork();

@@ -66,7 +66,7 @@ class Exporter implements HookInterface
         try {
             $csv = Writer::createFromStream(tmpfile());
             $index = array_search($pool, Manager::getPoolIDs(), true);
-            $settings = Manager::getSettings($index);
+            $settings = Manager::getSettings((int) $index);
 
             $this->log(__METHOD__ . ' ' . $pool);
             $csv->insertOne(array_keys($this->prepareHolder($settings)));
@@ -79,7 +79,7 @@ class Exporter implements HookInterface
         $this->dieHandler('success');
     }
 
-    protected function dieHandler(string $type)
+    protected function dieHandler(string $type): void
     {
         $types = [
             'success' => [

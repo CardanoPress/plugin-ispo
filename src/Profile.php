@@ -19,7 +19,7 @@ class Profile extends AbstractProfile
 
     public function saveCalculatedRewards(float $rewards): bool
     {
-        return $this->updateMeta($this->prefix . 'calculated_rewards', $rewards);
+        return (bool)$this->updateMeta($this->prefix . 'calculated_rewards', $rewards);
     }
 
     public function getCalculatedRewards(): float
@@ -31,7 +31,7 @@ class Profile extends AbstractProfile
 
     public function saveExtraRewards(array $rewards): bool
     {
-        return $this->updateMeta($this->prefix . 'extra_rewards', $rewards);
+        return (bool)$this->updateMeta($this->prefix . 'extra_rewards', $rewards);
     }
 
     public function getExtraRewards(): array

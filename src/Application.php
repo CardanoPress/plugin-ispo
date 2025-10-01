@@ -82,11 +82,12 @@ class Application extends AbstractApplication
             $data = $this->poolManager->getData();
         }
 
-        $showcase = get_post_meta(get_the_ID(), Admin::OPTION_KEY . '_pool_id', true) ?: array_key_first($data);
+        $showcase = get_post_meta((int) get_the_ID(), Admin::OPTION_KEY . '_pool_id', true) ?: array_key_first($data);
 
         return $data[$showcase] ?: PoolManager::DATA_STRUCTURE;
     }
 
+    /** @return mixed */
     public function option(string $key)
     {
         $map = [
@@ -102,7 +103,7 @@ class Application extends AbstractApplication
 
         if (in_array($key, array_keys($map), true)) {
             $settings = $this->admin->getOption('settings');
-            $showcase = get_post_meta(get_the_ID(), Admin::OPTION_KEY . '_pool_id', true);
+            $showcase = get_post_meta((int) get_the_ID(), Admin::OPTION_KEY . '_pool_id', true);
             $showcase = array_search($showcase, Manager::getPoolIDs(), true);
 
             if (false === $showcase) {

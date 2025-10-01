@@ -194,6 +194,6 @@ class Admin extends AbstractAdmin
         </style>
 
         <?php
-        echo wp_kses(ob_get_clean(), ['style' => []]);
+        echo wp_kses((string) ob_get_clean(), ['style' => []]);
     }
 }
