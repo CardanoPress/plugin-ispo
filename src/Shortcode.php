@@ -8,9 +8,12 @@
 namespace PBWebDev\CardanoPress\ISPO;
 
 use CardanoPress\Foundation\AbstractShortcode;
+use CardanoPress\Traits\HasTemplateShortcodes;
 
 class Shortcode extends AbstractShortcode
 {
+    use HasTemplateShortcodes;
+
     protected Application $application;
     protected Component $component;
 
@@ -24,42 +27,16 @@ class Shortcode extends AbstractShortcode
     {
         add_shortcode('cp-ispo_component', [$this, 'doComponent']);
         add_shortcode('cp-ispo_template', [$this, 'doTemplate']);
+        add_shortcode('cp-ispo_template_if', [$this, 'doTemplateIf']);
     }
 
-    public function doComponent($attributes, ?string $content = null): string
+    /** @param array<string, string> $attributes */
+    public function doComponent(array $attributes, ?string $content = null): string
     {
         $html = '<div ' . $this->component->cardanoPressISPO() . '>';
         $html .= apply_filters('the_content', $content);
         $html .= '</div>';
 
         return trim($html);
-    }
-
-    public function doTemplate(array $attributes): string
-    {
-        $args = shortcode_atts([
-            'name' => '',
-            'variables' => [],
-            'if' => '',
-        ], $attributes);
-
-        if (empty($args['name'])) {
-            return '';
-        }
-
-        if (isset($attributes['variables'])) {
-            parse_str(str_replace('&amp;', '&', $args['variables']), $args['variables']);
-        }
-
-        ob_start();
-        $this->application->template($args['name'], $args['variables']);
-
-        $html = ob_get_clean();
-
-        if (empty($args['if'])) {
-            return $html;
-        }
-
-        return '<template x-if="' . $args['if'] . '">' . $html . '</template>';
     }
 }

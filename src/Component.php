@@ -7,15 +7,16 @@
 
 namespace PBWebDev\CardanoPress\ISPO;
 
-class Component
+use CardanoPress\Foundation\AbstractComponent;
+
+class Component extends AbstractComponent
 {
     protected Application $application;
     protected bool $echo;
 
-    public function __construct(bool $echo)
+    protected function initialize(): void
     {
         $this->application = Application::getInstance();
-        $this->echo = $echo;
     }
 
     public function cardanoPressISPO(): string
@@ -65,29 +66,5 @@ class Component
         $value = Actions::getCardanoscanLink($network, $endpoint);
 
         return $this->printOrReturn(esc_url($value));
-    }
-
-    protected function attributes(array $data): string
-    {
-        $attr = [];
-
-        foreach (array_filter($data) as $key => $value) {
-            $attr[] = sprintf('%s="%s"', $key, esc_attr($value));
-        }
-
-        $attr = implode(' ', $attr);
-
-        return $this->printOrReturn($attr);
-    }
-
-    protected function printOrReturn(string $value): string
-    {
-        if (! $this->echo) {
-            return $value;
-        }
-
-        echo $value;
-
-        return '';
     }
 }
