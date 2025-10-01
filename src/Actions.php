@@ -167,12 +167,11 @@ class Actions implements HookInterface
         check_ajax_referer('cardanopress-actions');
 
         $poolData = Application::getInstance()->delegationPool();
-        $response = $poolData['hex'] ?? '';
 
-        if (empty($response)) {
+        if (empty($poolData['hex'])) {
             wp_send_json_error(CoreAction::getAjaxMessage('somethingWrong'));
         }
 
-        wp_send_json_success($response);
+        wp_send_json_success($poolData['hex']);
     }
 }

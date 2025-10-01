@@ -134,7 +134,7 @@ class Application extends AbstractApplication
 
         $delegation = $this->delegationPool();
 
-        if ('' === ($delegation['pool_id'] ?? '')) {
+        if (empty($delegation['pool_id'])) {
             return false;
         }
 
