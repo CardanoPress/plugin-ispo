@@ -124,7 +124,9 @@ class Application extends AbstractApplication
     {
         if (
             !function_exists('cardanoPress') ||
+            // @phpstan-ignore function.alreadyNarrowedType
             !method_exists(cardanoPress(), 'userProfile') ||
+            // @phpstan-ignore function.alreadyNarrowedType
             !method_exists(cardanoPress()->userProfile(), 'getAccountInfo')
         ) {
             return false;

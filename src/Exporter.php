@@ -149,7 +149,7 @@ class Exporter implements HookInterface
      */
     protected function getData(array $settings): array
     {
-        $blockfrost = new Blockfrost($settings['network'] ?? 'mainnet');
+        $blockfrost = new Blockfrost($settings['network']);
         $delegations = [];
 
         for ($epoch = $settings['commence']; $epoch <= $settings['conclude']; $epoch++) {

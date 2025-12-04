@@ -20,6 +20,7 @@ if (empty($rewards)) {
 }
 
 $rewards = NumberHelper::adaPrecision($rewards);
+$list = json_encode(cpISPO()->userProfile()->getExtraRewards()) ?: '[]';
 
 ?>
 
@@ -31,4 +32,4 @@ $rewards = NumberHelper::adaPrecision($rewards);
     <input value="<?php echo esc_attr($rewards); ?>" type="text" class="form-control text-center" readonly disabled>
 </template>
 
-<?php cpISPO()->template('part/extra-rewards', ['list' => json_encode(cpISPO()->userProfile()->getExtraRewards())]); ?>
+<?php cpISPO()->template('part/extra-rewards', compact('list')); ?>

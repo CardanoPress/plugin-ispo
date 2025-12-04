@@ -87,10 +87,12 @@ class PoolManager
         $this->setInstance($this);
         $this->setLogger($logger);
 
+        /** @var callable */
+        $logger = [$this->getLogger(), 'info'];
         $tasks = new Tasks(self::IDENTIFIER);
         $this->cache = new CacheManager($tasks);
 
-        $tasks->report([$this->getLogger(), 'info']);
+        $tasks->report($logger);
     }
 
     /** @return ?array<string, DataStructure> */
