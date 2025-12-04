@@ -1,13 +1,16 @@
 parameters:
   level: 5
   excludePaths:
-    - vendor
+    analyse:
+      - dependencies
+    analyseAndScan:
+      - vendor
   scanFiles:
     - cardanopress-ispo.php
   scanDirectories:
-    - %currentWorkingDirectory%/.cache/wordpress
-    - %currentWorkingDirectory%/.cache/wordpress-tests-lib
-    - %currentWorkingDirectory%/dependencies
-    - %currentWorkingDirectory%/../cardanopress
+    - .cache/wordpress
+    - .cache/wordpress-tests-lib
+    - dependencies
+    - ../cardanopress
   dynamicConstantNames:
     - CP_ISPO_FILE
