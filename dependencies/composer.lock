@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a3b5132fba7e0e1aec0b82600175b5b",
+    "content-hash": "13590f8c3b2f18cb7b8eeb668e87da3b",
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
@@ -218,9 +218,12 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4|^8.0",
+        "php": "^7.4|^8.2",
         "ext-json": "*"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "platform-overrides": {
+        "php": "7.4"
+    },
+    "plugin-api-version": "2.9.0"
 }

@@ -11,40 +11,40 @@ class ComposerStaticInit2a3b5132fba7e0e1aec0b82600175b5b
     );
 
     public static $prefixLengthsPsr4 = array (
-        'P' => 
+        'P' =>
         array (
             'PBWebDev\\CardanoPress\\ISPO\\' => 27,
         ),
-        'C' => 
+        'C' =>
         array (
             'CardanoPress\\ISPO\\Dependencies\\' => 31,
             'CardanoPress\\Dependencies\\' => 26,
             'CardanoPress\\' => 13,
         ),
-        'A' => 
+        'A' =>
         array (
             'Automattic\\Jetpack\\Autoloader\\' => 30,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'PBWebDev\\CardanoPress\\ISPO\\' => 
+        'PBWebDev\\CardanoPress\\ISPO\\' =>
         array (
             0 => __DIR__ . '/../..' . '/../src',
         ),
-        'CardanoPress\\ISPO\\Dependencies\\' => 
+        'CardanoPress\\ISPO\\Dependencies\\' =>
         array (
             0 => __DIR__ . '/../..' . '/',
         ),
-        'CardanoPress\\Dependencies\\' => 
+        'CardanoPress\\Dependencies\\' =>
         array (
             0 => __DIR__ . '/..' . '/cardanopress/framework/dependencies',
         ),
-        'CardanoPress\\' => 
+        'CardanoPress\\' =>
         array (
             0 => __DIR__ . '/..' . '/cardanopress/framework/src',
         ),
-        'Automattic\\Jetpack\\Autoloader\\' => 
+        'Automattic\\Jetpack\\Autoloader\\' =>
         array (
             0 => __DIR__ . '/..' . '/automattic/jetpack-autoloader/src',
         ),
