@@ -14,7 +14,7 @@
   "require": {
     "php": "^7.4|^8.2",
     "ext-json": "*",
-    "automattic/jetpack-autoloader": "^2.11",
+    "automattic/jetpack-autoloader": "^5.0",
     "cardanopress/framework": "^2.0",
     "league/csv": "^9.8"
   },
