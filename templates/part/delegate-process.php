@@ -28,11 +28,20 @@ if (empty($textDelegated)) {
         </template>
 
         <template x-if="isConnected && !transactionHash">
-            <button class="btn btn-primary" type="button" x-on:click="handleDelegation()" x-bind:disabled="isProcessing"><?php echo esc_html($text); ?></button>
+            <button
+                class="btn btn-primary"
+                type="button"
+                x-on:click="handleDelegation()"
+                x-bind:disabled="isProcessing"
+            ><?php echo esc_html($text); ?></button>
         </template>
 
         <template x-if="isConnected && transactionHash">
-            <button class="btn btn-primary" type="button" disabled="true"><?php echo esc_html($textDelegated); ?></button>
+            <button
+                class="btn btn-primary"
+                type="button"
+                disabled="true"
+            ><?php echo esc_html($textDelegated); ?></button>
         </template>
     <?php endif; ?>
 </div>

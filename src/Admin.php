@@ -181,7 +181,9 @@ class Admin extends AbstractAdmin
                 'type' => 'select',
                 'options' => array_combine(Manager::getPoolIDs(), Manager::getPoolIDs()),
             ],
-        ])->location('page')->create();
+        ]);
+        $postMeta->location('page');
+        $postMeta->create();
 
         $this->storeConfig($postMeta->get_config());
     }

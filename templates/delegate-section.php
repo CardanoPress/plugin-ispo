@@ -32,7 +32,13 @@
     <template x-if="isConnected && transactionHash">
         <div class="py-3">
             <h3>Delegation Result</h3>
-            <p><a x-bind:href="'<?php cpISPO()->component()->cardanoscanLink('transaction/'); ?>' + transactionHash" target="_blank">View transaction</a> on CardanoScan.</p>
+            <p>
+                <a
+                    x-bind:href="'<?php cpISPO()->component()->cardanoscanLink('transaction/'); ?>' + transactionHash"
+                    target="_blank"
+                >View transaction</a>
+                on CardanoScan.
+            </p>
         </div>
     </template>
 

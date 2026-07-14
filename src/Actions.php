@@ -11,7 +11,6 @@ use CardanoPress\Helpers\NumberHelper;
 use CardanoPress\Helpers\WalletHelper;
 use CardanoPress\Interfaces\HookInterface;
 use DateTimeZone;
-use PBWebDev\CardanoPress\Actions\CoreAction;
 use PBWebDev\CardanoPress\Blockfrost;
 use WP_User;
 
@@ -35,6 +34,8 @@ class Actions implements HookInterface
                 'tracking' => __('Tracking...', 'cardanopress-ispo'),
             ],
             'ajax' => [
+                'somethingWrong' => __('Something is wrong. Please try again', 'cardanopress-ispo'),
+                'unsupportedNetwork' => __('Unsupported network %s', 'cardanopress-ispo'),
                 'successfulTrack' => __('Successfully tracked rewards.', 'cardanopress-ispo'),
             ],
             'error' => [
@@ -110,7 +111,7 @@ class Actions implements HookInterface
             $queryNetwork = WalletHelper::getNetworkFromAddress($inputAddress);
 
             if (! Blockfrost::isReady($queryNetwork)) {
-                wp_send_json_error(sprintf(CoreAction::getAjaxMessage('unsupportedNetwork'), $queryNetwork));
+                wp_send_json_error(sprintf(self::getAjaxMessage('unsupportedNetwork'), $queryNetwork));
             }
 
             $blockfrost = new Blockfrost($queryNetwork);
@@ -127,7 +128,7 @@ class Actions implements HookInterface
         check_ajax_referer('cardanopress-actions');
 
         if (empty($_POST['stakeAddress']) || ! Application::getInstance()->isReady()) {
-            wp_send_json_error(CoreAction::getAjaxMessage('somethingWrong'));
+            wp_send_json_error(self::getAjaxMessage('somethingWrong'));
         }
 
         $stakeAddress = $this->filterStakeAddress($_POST['stakeAddress']);
@@ -153,7 +154,7 @@ class Actions implements HookInterface
         $queryNetwork = WalletHelper::getNetworkFromStake($stakeAddress);
 
         if (! Blockfrost::isReady($queryNetwork)) {
-            wp_send_json_error(sprintf(CoreAction::getAjaxMessage('unsupportedNetwork'), $queryNetwork));
+            wp_send_json_error(sprintf(self::getAjaxMessage('unsupportedNetwork'), $queryNetwork));
         }
 
         wp_send_json_success([
@@ -170,7 +171,7 @@ class Actions implements HookInterface
         $poolData = Application::getInstance()->delegationPool();
 
         if (empty($poolData['hex'])) {
-            wp_send_json_error(CoreAction::getAjaxMessage('somethingWrong'));
+            wp_send_json_error(self::getAjaxMessage('somethingWrong'));
         }
 
         wp_send_json_success($poolData['hex']);
