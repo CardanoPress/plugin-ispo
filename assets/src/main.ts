@@ -6,10 +6,7 @@ const cardanoPressISPOMessages = window.cardanoPressISPOMessages || {
 }
 
 window.addEventListener('alpine:init', () => {
-    const Alpine = window.Alpine || {}
-    const cardanoPress = window.cardanoPress || {}
-
-    Alpine.data('cardanoPressISPO', () => ({
+    window.Alpine.data('cardanoPressISPO', () => ({
         isProcessing: false,
         ration: 1,
         minimum: 1,
@@ -23,14 +20,14 @@ window.addEventListener('alpine:init', () => {
         address: '',
         trackedReward: '',
         transactionHash: '',
-        extraRewards: null,
+        extraRewards: null as any,
 
         async init() {
-            this.ration = parseFloat(this.$root.dataset.ration)
-            this.minimum = parseInt(this.$root.dataset.minimum)
-            this.maximum = parseInt(this.$root.dataset.maximum)
-            this.commence = parseInt(this.$root.dataset.commence)
-            this.conclude = parseInt(this.$root.dataset.conclude)
+            this.ration = parseFloat(this.$root.dataset.ration || '')
+            this.minimum = parseInt(this.$root.dataset.minimum || '')
+            this.maximum = parseInt(this.$root.dataset.maximum || '')
+            this.commence = parseInt(this.$root.dataset.commence || '')
+            this.conclude = parseInt(this.$root.dataset.conclude || '')
             this.delegate = this.minimum
             this.limit = this.control + this.conclude - this.commence
 
@@ -60,7 +57,7 @@ window.addEventListener('alpine:init', () => {
         async handleDelegation() {
             this.transactionHash = ''
 
-            cardanoPress.api.addNotice({
+            window.cardanoPress.api.addNotice({
                 id: 'ispo-delegation',
                 type: 'info',
                 text: cardanoPressISPOMessages.delegating,
@@ -69,14 +66,14 @@ window.addEventListener('alpine:init', () => {
             this.isProcessing = true
             const response = await handleDelegation()
 
-            cardanoPress.api.removeNotice('ispo-delegation')
+            window.cardanoPress.api.removeNotice('ispo-delegation')
 
             if (response.success) {
                 this.transactionHash = response.data.hash
 
-                cardanoPress.api.addNotice({ type: 'info', text: response.data.message })
+                window.cardanoPress.api.addNotice({ type: 'info', text: response.data.message })
             } else {
-                cardanoPress.api.addNotice({ type: 'warning', text: response.data })
+                window.cardanoPress.api.addNotice({ type: 'warning', text: response.data })
             }
 
             this.isProcessing = false
@@ -86,7 +83,7 @@ window.addEventListener('alpine:init', () => {
             this.trackedReward = ''
             this.extraRewards = null
 
-            cardanoPress.api.addNotice({
+            window.cardanoPress.api.addNotice({
                 id: 'ispo-tracking',
                 type: 'info',
                 text: cardanoPressISPOMessages.tracking,
@@ -95,15 +92,15 @@ window.addEventListener('alpine:init', () => {
             this.isProcessing = true
             const response = await handleTracking(this.address)
 
-            cardanoPress.api.removeNotice('ispo-tracking')
+            window.cardanoPress.api.removeNotice('ispo-tracking')
 
             if (response.success) {
                 this.trackedReward = response.data.amount.toFixed(6)
                 this.extraRewards = response.data.extra
 
-                cardanoPress.api.addNotice({ type: 'info', text: response.data.message })
+                window.cardanoPress.api.addNotice({ type: 'info', text: response.data.message })
             } else {
-                cardanoPress.api.addNotice({ type: 'warning', text: response.data })
+                window.cardanoPress.api.addNotice({ type: 'warning', text: response.data })
             }
 
             this.isProcessing = false

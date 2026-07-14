@@ -1,8 +1,8 @@
 const getDelegation = async () => {
-    return await fetch(cardanoPress.ajaxUrl, {
+    return await fetch(window.cardanoPress.ajaxUrl, {
         method: 'POST',
         body: new URLSearchParams({
-            _wpnonce: cardanoPress._nonce,
+            _wpnonce: window.cardanoPress._nonce,
             action: 'cp-ispo_delegation_data',
         }),
     }).then((response) => response.json())
@@ -16,20 +16,20 @@ export const handleDelegation = async () => {
     }
 
     const poolId = response.data
-    const result = await cardanoPress.wallet.delegationTx(poolId)
+    const result = await window.cardanoPress.wallet.delegationTx(poolId)
 
     if (result.success) {
-        return await cardanoPress.api.saveWalletTx(result.data.network, 'delegation', result.data.transaction)
+        return await window.cardanoPress.api.saveWalletTx(result.data.network, 'delegation', result.data.transaction)
     }
 
     return result
 }
 
-export const handleTracking = async (stakeAddress) => {
-    return await fetch(cardanoPress.ajaxUrl, {
+export const handleTracking = async (stakeAddress: string) => {
+    return await fetch(window.cardanoPress.ajaxUrl, {
         method: 'POST',
         body: new URLSearchParams({
-            _wpnonce: cardanoPress._nonce,
+            _wpnonce: window.cardanoPress._nonce,
             action: 'cp-ispo_track_rewards',
             stakeAddress,
         }),
