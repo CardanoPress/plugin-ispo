@@ -11,40 +11,40 @@ class ComposerStaticInit2a3b5132fba7e0e1aec0b82600175b5b
     );
 
     public static $prefixLengthsPsr4 = array (
-        'P' =>
+        'P' => 
         array (
             'PBWebDev\\CardanoPress\\ISPO\\' => 27,
         ),
-        'C' =>
+        'C' => 
         array (
             'CardanoPress\\ISPO\\Dependencies\\' => 31,
             'CardanoPress\\Dependencies\\' => 26,
             'CardanoPress\\' => 13,
         ),
-        'A' =>
+        'A' => 
         array (
             'Automattic\\Jetpack\\Autoloader\\' => 30,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'PBWebDev\\CardanoPress\\ISPO\\' =>
+        'PBWebDev\\CardanoPress\\ISPO\\' => 
         array (
             0 => __DIR__ . '/../..' . '/../src',
         ),
-        'CardanoPress\\ISPO\\Dependencies\\' =>
+        'CardanoPress\\ISPO\\Dependencies\\' => 
         array (
             0 => __DIR__ . '/../..' . '/',
         ),
-        'CardanoPress\\Dependencies\\' =>
+        'CardanoPress\\Dependencies\\' => 
         array (
             0 => __DIR__ . '/..' . '/cardanopress/framework/dependencies',
         ),
-        'CardanoPress\\' =>
+        'CardanoPress\\' => 
         array (
             0 => __DIR__ . '/..' . '/cardanopress/framework/src',
         ),
-        'Automattic\\Jetpack\\Autoloader\\' =>
+        'Automattic\\Jetpack\\Autoloader\\' => 
         array (
             0 => __DIR__ . '/..' . '/automattic/jetpack-autoloader/src',
         ),
@@ -57,6 +57,7 @@ class ComposerStaticInit2a3b5132fba7e0e1aec0b82600175b5b
         'Automattic\\Jetpack\\Autoloader\\CustomAutoloaderPlugin' => __DIR__ . '/..' . '/automattic/jetpack-autoloader/src/CustomAutoloaderPlugin.php',
         'Automattic\\Jetpack\\Autoloader\\ManifestGenerator' => __DIR__ . '/..' . '/automattic/jetpack-autoloader/src/ManifestGenerator.php',
         'CardanoPress\\Asset' => __DIR__ . '/..' . '/cardanopress/framework/src/Asset.php',
+        'CardanoPress\\Clients\\BaseClient' => __DIR__ . '/..' . '/cardanopress/framework/src/Clients/BaseClient.php',
         'CardanoPress\\Clients\\BlockfrostClient' => __DIR__ . '/..' . '/cardanopress/framework/src/Clients/BlockfrostClient.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\BodySummarizer' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/BodySummarizer.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\BodySummarizerInterface' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/BodySummarizerInterface.php',
@@ -82,10 +83,13 @@ class ComposerStaticInit2a3b5132fba7e0e1aec0b82600175b5b
         'CardanoPress\\Dependencies\\GuzzleHttp\\Handler\\CurlFactoryInterface' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Handler/CurlFactoryInterface.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\Handler\\CurlHandler' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Handler/CurlHandler.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\Handler\\CurlMultiHandler' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Handler/CurlMultiHandler.php',
+        'CardanoPress\\Dependencies\\GuzzleHttp\\Handler\\CurlShareHandleState' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Handler/CurlShareHandleState.php',
+        'CardanoPress\\Dependencies\\GuzzleHttp\\Handler\\CurlVersion' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Handler/CurlVersion.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\Handler\\EasyHandle' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Handler/EasyHandle.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\Handler\\HeaderProcessor' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Handler/HeaderProcessor.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\Handler\\MockHandler' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Handler/MockHandler.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\Handler\\Proxy' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Handler/Proxy.php',
+        'CardanoPress\\Dependencies\\GuzzleHttp\\Handler\\ProxyEnvironment' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Handler/ProxyEnvironment.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\Handler\\StreamHandler' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Handler/StreamHandler.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\MessageFormatter' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/MessageFormatter.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\MessageFormatterInterface' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/MessageFormatterInterface.php',
@@ -128,6 +132,7 @@ class ComposerStaticInit2a3b5132fba7e0e1aec0b82600175b5b
         'CardanoPress\\Dependencies\\GuzzleHttp\\Psr7\\Query' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Psr7/Query.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\Psr7\\Request' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Psr7/Request.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\Psr7\\Response' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Psr7/Response.php',
+        'CardanoPress\\Dependencies\\GuzzleHttp\\Psr7\\Rfc3986' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Psr7/Rfc3986.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\Psr7\\Rfc7230' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Psr7/Rfc7230.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\Psr7\\ServerRequest' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Psr7/ServerRequest.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\Psr7\\Stream' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Psr7/Stream.php',
@@ -143,6 +148,7 @@ class ComposerStaticInit2a3b5132fba7e0e1aec0b82600175b5b
         'CardanoPress\\Dependencies\\GuzzleHttp\\RequestOptions' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/RequestOptions.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\RetryMiddleware' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/RetryMiddleware.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\TransferStats' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/TransferStats.php',
+        'CardanoPress\\Dependencies\\GuzzleHttp\\TransportSharing' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/TransportSharing.php',
         'CardanoPress\\Dependencies\\GuzzleHttp\\Utils' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/GuzzleHttp/Utils.php',
         'CardanoPress\\Dependencies\\Monolog\\Attribute\\AsMonologProcessor' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/Monolog/Attribute/AsMonologProcessor.php',
         'CardanoPress\\Dependencies\\Monolog\\DateTimeImmutable' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/Monolog/DateTimeImmutable.php',
@@ -287,6 +293,8 @@ class ComposerStaticInit2a3b5132fba7e0e1aec0b82600175b5b
         'CardanoPress\\Dependencies\\Psr\\Log\\Test\\DummyTest' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/Psr/Log/Test/DummyTest.php',
         'CardanoPress\\Dependencies\\Psr\\Log\\Test\\LoggerInterfaceTest' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/Psr/Log/Test/LoggerInterfaceTest.php',
         'CardanoPress\\Dependencies\\Psr\\Log\\Test\\TestLogger' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/Psr/Log/Test/TestLogger.php',
+        'CardanoPress\\Dependencies\\Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/Symfony/Polyfill/Php80/Php80.php',
+        'CardanoPress\\Dependencies\\Symfony\\Polyfill\\Php80\\PhpToken' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/Symfony/Polyfill/Php80/PhpToken.php',
         'CardanoPress\\Dependencies\\ThemePlate\\CPT\\Base' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/ThemePlate/CPT/Base.php',
         'CardanoPress\\Dependencies\\ThemePlate\\CPT\\CommonInterface' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/ThemePlate/CPT/CommonInterface.php',
         'CardanoPress\\Dependencies\\ThemePlate\\CPT\\Interfaces\\PostTypeInterface' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/ThemePlate/CPT/Interfaces/PostTypeInterface.php',
@@ -331,7 +339,9 @@ class ComposerStaticInit2a3b5132fba7e0e1aec0b82600175b5b
         'CardanoPress\\Dependencies\\ThemePlate\\Core\\Helper\\FormHelper' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/ThemePlate/Core/Helper/FormHelper.php',
         'CardanoPress\\Dependencies\\ThemePlate\\Core\\Helper\\MainHelper' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/ThemePlate/Core/Helper/MainHelper.php',
         'CardanoPress\\Dependencies\\ThemePlate\\Core\\Helper\\MetaHelper' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/ThemePlate/Core/Helper/MetaHelper.php',
+        'CardanoPress\\Dependencies\\ThemePlate\\Core\\Interfaces\\FieldsInterface' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/ThemePlate/Core/Interfaces/FieldsInterface.php',
         'CardanoPress\\Dependencies\\ThemePlate\\Core\\Repository' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/ThemePlate/Core/Repository.php',
+        'CardanoPress\\Dependencies\\ThemePlate\\Core\\Traits\\HasFields' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/ThemePlate/Core/Traits/HasFields.php',
         'CardanoPress\\Dependencies\\ThemePlate\\Enqueue\\CustomData' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/ThemePlate/Enqueue/CustomData.php',
         'CardanoPress\\Dependencies\\ThemePlate\\Enqueue\\Dynamic' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/ThemePlate/Enqueue/Dynamic.php',
         'CardanoPress\\Dependencies\\ThemePlate\\Enqueue\\LoaderTag' => __DIR__ . '/..' . '/cardanopress/framework/dependencies/ThemePlate/Enqueue/LoaderTag.php',
@@ -370,10 +380,13 @@ class ComposerStaticInit2a3b5132fba7e0e1aec0b82600175b5b
         'CardanoPress\\Foundation\\AbstractInstaller' => __DIR__ . '/..' . '/cardanopress/framework/src/Foundation/AbstractInstaller.php',
         'CardanoPress\\Foundation\\AbstractLicenser' => __DIR__ . '/..' . '/cardanopress/framework/src/Foundation/AbstractLicenser.php',
         'CardanoPress\\Foundation\\AbstractManifest' => __DIR__ . '/..' . '/cardanopress/framework/src/Foundation/AbstractManifest.php',
+        'CardanoPress\\Foundation\\AbstractMessager' => __DIR__ . '/..' . '/cardanopress/framework/src/Foundation/AbstractMessager.php',
         'CardanoPress\\Foundation\\AbstractProfile' => __DIR__ . '/..' . '/cardanopress/framework/src/Foundation/AbstractProfile.php',
+        'CardanoPress\\Foundation\\AbstractSanitizer' => __DIR__ . '/..' . '/cardanopress/framework/src/Foundation/AbstractSanitizer.php',
         'CardanoPress\\Foundation\\AbstractShortcode' => __DIR__ . '/..' . '/cardanopress/framework/src/Foundation/AbstractShortcode.php',
         'CardanoPress\\Foundation\\AbstractTemplates' => __DIR__ . '/..' . '/cardanopress/framework/src/Foundation/AbstractTemplates.php',
         'CardanoPress\\Helpers\\CompatHelper' => __DIR__ . '/..' . '/cardanopress/framework/src/Helpers/CompatHelper.php',
+        'CardanoPress\\Helpers\\HttpHelper' => __DIR__ . '/..' . '/cardanopress/framework/src/Helpers/HttpHelper.php',
         'CardanoPress\\Helpers\\LicenseHelper' => __DIR__ . '/..' . '/cardanopress/framework/src/Helpers/LicenseHelper.php',
         'CardanoPress\\Helpers\\NumberHelper' => __DIR__ . '/..' . '/cardanopress/framework/src/Helpers/NumberHelper.php',
         'CardanoPress\\Helpers\\ThemeHelper' => __DIR__ . '/..' . '/cardanopress/framework/src/Helpers/ThemeHelper.php',
@@ -408,7 +421,9 @@ class ComposerStaticInit2a3b5132fba7e0e1aec0b82600175b5b
         'CardanoPress\\Interfaces\\HookInterface' => __DIR__ . '/..' . '/cardanopress/framework/src/Interfaces/HookInterface.php',
         'CardanoPress\\Interfaces\\InstallerInterface' => __DIR__ . '/..' . '/cardanopress/framework/src/Interfaces/InstallerInterface.php',
         'CardanoPress\\Interfaces\\ManifestInterface' => __DIR__ . '/..' . '/cardanopress/framework/src/Interfaces/ManifestInterface.php',
+        'CardanoPress\\Interfaces\\MessagerInterface' => __DIR__ . '/..' . '/cardanopress/framework/src/Interfaces/MessagerInterface.php',
         'CardanoPress\\Interfaces\\ProfileInterface' => __DIR__ . '/..' . '/cardanopress/framework/src/Interfaces/ProfileInterface.php',
+        'CardanoPress\\Interfaces\\SanitizerInterface' => __DIR__ . '/..' . '/cardanopress/framework/src/Interfaces/SanitizerInterface.php',
         'CardanoPress\\Interfaces\\TemplatesInterface' => __DIR__ . '/..' . '/cardanopress/framework/src/Interfaces/TemplatesInterface.php',
         'CardanoPress\\SharedBase' => __DIR__ . '/..' . '/cardanopress/framework/src/SharedBase.php',
         'CardanoPress\\TemplateLoader' => __DIR__ . '/..' . '/cardanopress/framework/src/TemplateLoader.php',
@@ -418,6 +433,7 @@ class ComposerStaticInit2a3b5132fba7e0e1aec0b82600175b5b
         'CardanoPress\\Traits\\HasData' => __DIR__ . '/..' . '/cardanopress/framework/src/Traits/HasData.php',
         'CardanoPress\\Traits\\HasLicense' => __DIR__ . '/..' . '/cardanopress/framework/src/Traits/HasLicense.php',
         'CardanoPress\\Traits\\HasPageTemplates' => __DIR__ . '/..' . '/cardanopress/framework/src/Traits/HasPageTemplates.php',
+        'CardanoPress\\Traits\\HasPostInput' => __DIR__ . '/..' . '/cardanopress/framework/src/Traits/HasPostInput.php',
         'CardanoPress\\Traits\\HasSettingsLink' => __DIR__ . '/..' . '/cardanopress/framework/src/Traits/HasSettingsLink.php',
         'CardanoPress\\Traits\\HasTemplateShortcodes' => __DIR__ . '/..' . '/cardanopress/framework/src/Traits/HasTemplateShortcodes.php',
         'CardanoPress\\Traits\\Instantiable' => __DIR__ . '/..' . '/cardanopress/framework/src/Traits/Instantiable.php',
