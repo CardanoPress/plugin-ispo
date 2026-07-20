@@ -43,12 +43,20 @@ class Component extends AbstractComponent
     {
         $commence = $this->application->option('rewards_commence');
 
+        if (empty($commence)) {
+            return $this->printOrReturn('');
+        }
+
         return $this->printOrReturn(Actions::toUTC($commence));
     }
 
     public function concludeUTC(): string
     {
         $conclude = $this->application->option('rewards_conclude');
+
+        if (empty($conclude)) {
+            return $this->printOrReturn('');
+        }
 
         return $this->printOrReturn(Actions::toUTC($conclude));
     }
