@@ -23,11 +23,11 @@ window.addEventListener('alpine:init', () => {
         extraRewards: null as any,
 
         async init() {
-            this.ration = parseFloat(this.$root.dataset.ration || '')
-            this.minimum = parseInt(this.$root.dataset.minimum || '')
-            this.maximum = parseInt(this.$root.dataset.maximum || '')
-            this.commence = parseInt(this.$root.dataset.commence || '')
-            this.conclude = parseInt(this.$root.dataset.conclude || '')
+            this.ration = parseFloat(this.$root.dataset.ration || '0')
+            this.minimum = parseInt(this.$root.dataset.minimum || '0')
+            this.maximum = parseInt(this.$root.dataset.maximum || '0')
+            this.commence = parseInt(this.$root.dataset.commence || '0')
+            this.conclude = parseInt(this.$root.dataset.conclude || '0')
             this.delegate = this.minimum
             this.limit = this.control + this.conclude - this.commence
 
@@ -47,7 +47,7 @@ window.addEventListener('alpine:init', () => {
                 this.epochs = this.control
             }
 
-            if (this.epochs > (this.limit)) {
+            if (this.epochs > this.limit) {
                 this.epochs = this.limit
             }
 
@@ -64,19 +64,28 @@ window.addEventListener('alpine:init', () => {
             })
 
             this.isProcessing = true
-            const response = await handleDelegation()
 
-            window.cardanoPress.api.removeNotice('ispo-delegation')
+            try {
+                const response = await handleDelegation()
 
-            if (response.success) {
-                this.transactionHash = response.data.hash
+                window.cardanoPress.api.removeNotice('ispo-delegation')
 
-                window.cardanoPress.api.addNotice({ type: 'info', text: response.data.message })
-            } else {
-                window.cardanoPress.api.addNotice({ type: 'warning', text: response.data })
+                if (response.success) {
+                    this.transactionHash = response.data.hash
+
+                    window.cardanoPress.api.addNotice({ type: 'info', text: response.data.message })
+                } else {
+                    window.cardanoPress.api.addNotice({ type: 'warning', text: response.data })
+                }
+            } catch (error) {
+                window.cardanoPress.api.removeNotice('ispo-delegation')
+                window.cardanoPress.api.addNotice({
+                    type: 'error',
+                    text: error instanceof Error ? error.message : 'Request failed',
+                })
+            } finally {
+                this.isProcessing = false
             }
-
-            this.isProcessing = false
         },
 
         async handleTracking() {
@@ -90,20 +99,29 @@ window.addEventListener('alpine:init', () => {
             })
 
             this.isProcessing = true
-            const response = await handleTracking(this.address)
 
-            window.cardanoPress.api.removeNotice('ispo-tracking')
+            try {
+                const response = await handleTracking(this.address)
 
-            if (response.success) {
-                this.trackedReward = response.data.amount.toFixed(6)
-                this.extraRewards = response.data.extra
+                window.cardanoPress.api.removeNotice('ispo-tracking')
 
-                window.cardanoPress.api.addNotice({ type: 'info', text: response.data.message })
-            } else {
-                window.cardanoPress.api.addNotice({ type: 'warning', text: response.data })
+                if (response.success) {
+                    this.trackedReward = response.data.amount.toFixed(6)
+                    this.extraRewards = response.data.extra
+
+                    window.cardanoPress.api.addNotice({ type: 'info', text: response.data.message })
+                } else {
+                    window.cardanoPress.api.addNotice({ type: 'warning', text: response.data })
+                }
+            } catch (error) {
+                window.cardanoPress.api.removeNotice('ispo-tracking')
+                window.cardanoPress.api.addNotice({
+                    type: 'error',
+                    text: error instanceof Error ? error.message : 'Request failed',
+                })
+            } finally {
+                this.isProcessing = false
             }
-
-            this.isProcessing = false
         },
     }))
 })

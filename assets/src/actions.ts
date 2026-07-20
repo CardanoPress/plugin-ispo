@@ -1,11 +1,17 @@
 const getDelegation = async () => {
-    return await fetch(window.cardanoPress.ajaxUrl, {
+    const response = await fetch(window.cardanoPress.ajaxUrl, {
         method: 'POST',
         body: new URLSearchParams({
             _wpnonce: window.cardanoPress._nonce,
             action: 'cp-ispo_delegation_data',
         }),
-    }).then((response) => response.json())
+    })
+
+    if (!response.ok) {
+        throw new Error(response.statusText || 'Request failed')
+    }
+
+    return response.json()
 }
 
 export const handleDelegation = async () => {
@@ -26,12 +32,18 @@ export const handleDelegation = async () => {
 }
 
 export const handleTracking = async (stakeAddress: string) => {
-    return await fetch(window.cardanoPress.ajaxUrl, {
+    const response = await fetch(window.cardanoPress.ajaxUrl, {
         method: 'POST',
         body: new URLSearchParams({
             _wpnonce: window.cardanoPress._nonce,
             action: 'cp-ispo_track_rewards',
             stakeAddress,
         }),
-    }).then((response) => response.json())
+    })
+
+    if (!response.ok) {
+        throw new Error(response.statusText || 'Request failed')
+    }
+
+    return response.json()
 }
