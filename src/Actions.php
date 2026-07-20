@@ -127,11 +127,15 @@ class Actions implements HookInterface
     {
         check_ajax_referer('cardanopress-actions');
 
-        if (empty($_POST['stakeAddress']) || ! Application::getInstance()->isReady()) {
+        $stakeAddress = InputHelper::sanitizePostString('stakeAddress');
+
+        if (null === $stakeAddress || '' === $stakeAddress || ! Application::getInstance()->isReady()) {
             wp_send_json_error(self::getAjaxMessage('somethingWrong'));
+
+            return;
         }
 
-        $stakeAddress = $this->filterStakeAddress($_POST['stakeAddress']);
+        $stakeAddress = $this->filterStakeAddress($stakeAddress);
 
         if ('' === $stakeAddress) {
             wp_send_json_error(self::getErrorMessage('invalidAddress'));
