@@ -64,8 +64,19 @@ class Manager
     {
         $rewards = 0.0;
         $page = 1;
+        $maxPages = max(1, (int) apply_filters('cp-ispo-max_pagination_pages', 100));
+        $response = [];
 
         do {
+            if ($page > $maxPages) {
+                Application::getInstance()->logger('manager')->warning(
+                    'Pagination cap reached',
+                    compact('stakeAddress', 'maxPages')
+                );
+
+                break;
+            }
+
             $response = $blockfrost->getAccountHistory($stakeAddress, $page);
 
             foreach ($response as $history) {
