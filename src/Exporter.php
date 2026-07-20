@@ -64,6 +64,10 @@ class Exporter implements HookInterface
             $this->dieHandler('forbidden');
         }
 
+        if (! current_user_can('manage_options')) {
+            $this->dieHandler('forbidden');
+        }
+
         $pool = sanitize_key($_GET['pool'] ?? '');
 
         if (empty($pool) || ! in_array($pool, Manager::getPoolIDs(), true)) {
@@ -151,11 +155,22 @@ class Exporter implements HookInterface
     {
         $blockfrost = new Blockfrost($settings['network']);
         $delegations = [];
+        $maxPages = max(1, (int) apply_filters('cp-ispo-max_pagination_pages', 100));
 
         for ($epoch = $settings['commence']; $epoch <= $settings['conclude']; $epoch++) {
             $page = 1;
+            $response = [];
 
             do {
+                if ($page > $maxPages) {
+                    $this->log(
+                        __METHOD__ . ' pagination cap reached: epoch=' . $epoch
+                        . ' pool=' . $settings['pool_id'] . ' maxPages=' . $maxPages
+                    );
+
+                    break;
+                }
+
                 $response = $this->requestData($blockfrost, $settings['pool_id'], $epoch, $page);
 
                 $this->log(__METHOD__ . ' count=' . count($response));
