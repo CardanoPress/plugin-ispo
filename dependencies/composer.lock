@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "239ed986b1f343dfb08ca2710352db5d",
+    "content-hash": "440fd33c4f5c3718ed0426c530c77d6d",
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
@@ -72,16 +72,16 @@
         },
         {
             "name": "cardanopress/framework",
-            "version": "v2.18.1",
+            "version": "v2.18.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CardanoPress/framework.git",
-                "reference": "a5c652cb6c40dc69b46681b24484bc9146c395ce"
+                "reference": "eb6161fa335de4ac60af0b43b57fdd018b6b765d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CardanoPress/framework/zipball/a5c652cb6c40dc69b46681b24484bc9146c395ce",
-                "reference": "a5c652cb6c40dc69b46681b24484bc9146c395ce",
+                "url": "https://api.github.com/repos/CardanoPress/framework/zipball/eb6161fa335de4ac60af0b43b57fdd018b6b765d",
+                "reference": "eb6161fa335de4ac60af0b43b57fdd018b6b765d",
                 "shasum": ""
             },
             "require": {
@@ -124,9 +124,9 @@
             ],
             "support": {
                 "issues": "https://github.com/CardanoPress/framework/issues",
-                "source": "https://github.com/CardanoPress/framework/tree/v2.18.1"
+                "source": "https://github.com/CardanoPress/framework/tree/v2.18.2"
             },
-            "time": "2026-06-18T02:57:00+00:00"
+            "time": "2026-11-23T03:39:42+00:00"
         },
         {
             "name": "league/csv",
@@ -227,5 +227,5 @@
     "platform-overrides": {
         "php": "7.4"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
